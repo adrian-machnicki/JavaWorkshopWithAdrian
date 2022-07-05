@@ -14,17 +14,18 @@ public class Employee {
         this.department = department;
     }
 
+    public Employee(int id, String firstname, String lastname, Department department) {
+        this(firstname, lastname, department);
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" + id + ", " + firstname + ' ' + lastname + ", " + department + '}';
+        return "Employee{" + id + ", " + firstname + ' ' + lastname + ", " + department.getLabel() + '}';
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstname() {
@@ -37,9 +38,5 @@ public class Employee {
 
     public Department getDepartment() {
         return department;
-    }
-
-    public String getEmploymentLevel() {
-        return this.getClass().toString();
     }
 }

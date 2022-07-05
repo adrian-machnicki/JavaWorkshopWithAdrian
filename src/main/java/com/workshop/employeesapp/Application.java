@@ -7,57 +7,40 @@ import static com.workshop.employeesapp.model.Department.OPERATIONS;
 import static com.workshop.employeesapp.model.Department.SALES;
 
 import com.opencsv.exceptions.CsvValidationException;
-import com.workshop.employeesapp.service.EmployeesService;
 import com.workshop.employeesapp.repository.EmployeesStorage;
-import com.workshop.employeesapp.model.Manager;
-import com.workshop.employeesapp.service.EmployeesCsvService;
+import com.workshop.employeesapp.service.SimpleEmployeesService;
+import com.workshop.employeesapp.service.csv.EmployeesCsvService;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.LocalDateTime;
 
 public class Application {
 
     public static void main(String[] args) {
-        System.out.println("1");
+        /*
+        Playground
+         */
+
+
+
+
+        /*
+        Add employees in code and print them
+         */
         addAndPrintEmployees();
 
-        System.out.println("2");
-
+        /*
+        Import employees from csv file and print them
+         */
         try {
             readEmployeesFromCsvAndPrint();
         } catch (CsvValidationException | IOException e) {
             System.out.println(e);
-            LocalDateTime now = LocalDateTime.now();
         }
     }
 
-    private static void readEmployeesFromCsvAndPrint() throws CsvValidationException, IOException {
-        var service = new EmployeesService(new EmployeesStorage());
-        var filePath = Path.of("src", "main", "resources", "employees.csv");
-
-        System.out.println("=== Adding employees from csv file");
-
-        // 1. read employees from csv file
-        var employees = new EmployeesCsvService().readEmployeesCsv(filePath.toString());
-
-        // 2. add employees to storage
-        employees
-            .forEach(e -> {
-                if (e instanceof Manager) {
-                    service.addManager(e.getFirstname(), e.getLastname(), e.getDepartment());
-                } else {
-                    service.addEmployee(e.getFirstname(), e.getLastname(), e.getDepartment());
-                }
-            });
-
-        // 3. print employees
-        System.out.println(service.printEmployees());
-        System.out.println();
-    }
-
     private static void addAndPrintEmployees() {
-        System.out.println("=== Adding employees in Application class");
-        var service = new EmployeesService(new EmployeesStorage());
+        System.out.println("===== Adding employees in Application class");
+        var service = new SimpleEmployeesService(new EmployeesStorage());
 
         service.addEmployee("Victor", "Smith", MARKETING);
         service.addEmployee("John", "Moss", OPERATIONS);
@@ -68,6 +51,21 @@ public class Application {
         service.addManager("Brian", "Martin", MARKETING);
         service.addManager("Walter", "Black", FINANCE);
 
+        System.out.println(service.printEmployees());
+        System.out.println("=====");
+    }
+
+    private static void readEmployeesFromCsvAndPrint() throws CsvValidationException, IOException {
+        var filePath = Path.of("src", "main", "resources", "employees.csv");
+        var service = new SimpleEmployeesService(new EmployeesStorage());
+        var csvService = new EmployeesCsvService(service);
+
+        System.out.println("=== Adding employees from csv file");
+
+        // 1. import employees from csv file
+        csvService.importEmployeesFromCsv(filePath.toString());
+
+        // 2. print employees
         System.out.println(service.printEmployees());
         System.out.println();
     }

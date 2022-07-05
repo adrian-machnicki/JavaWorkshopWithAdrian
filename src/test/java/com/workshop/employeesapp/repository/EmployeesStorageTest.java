@@ -1,4 +1,4 @@
-package com.workshop.employeesapp.service;
+package com.workshop.employeesapp.repository;
 
 import static com.workshop.employeesapp.model.Department.FINANCE;
 import static com.workshop.employeesapp.model.Department.IT;

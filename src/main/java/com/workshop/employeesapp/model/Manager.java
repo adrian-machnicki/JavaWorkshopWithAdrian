@@ -6,8 +6,12 @@ public class Manager extends Employee {
         super(firstname, lastname, department);
     }
 
+    public Manager(int id, String firstname, String lastname, Department department) {
+        super(id, firstname, lastname, department);
+    }
+
     @Override
     public String toString() {
-        return "Manager{" + id + ", " + firstname + ' ' + lastname + ", " + department + '}';
+        return "Manager{" + id + ", " + firstname + ' ' + lastname + ", " + department.getLabel() + '}';
     }
 }
