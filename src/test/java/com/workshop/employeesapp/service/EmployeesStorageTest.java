@@ -1,13 +1,13 @@
-package com.workshop.employees;
+package com.workshop.employeesapp.service;
 
-import static com.workshop.departments.Department.FINANCE;
-import static com.workshop.departments.Department.IT;
+import static com.workshop.employeesapp.model.Department.FINANCE;
+import static com.workshop.employeesapp.model.Department.IT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.workshop.employees.Employee;
-import com.workshop.employees.EmployeesStorage;
+import com.workshop.employeesapp.model.Employee;
+import com.workshop.employeesapp.repository.EmployeesStorage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

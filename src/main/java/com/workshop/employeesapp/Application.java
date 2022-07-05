@@ -1,16 +1,16 @@
-package com.workshop;
+package com.workshop.employeesapp;
 
-import static com.workshop.departments.Department.FINANCE;
-import static com.workshop.departments.Department.IT;
-import static com.workshop.departments.Department.MARKETING;
-import static com.workshop.departments.Department.OPERATIONS;
-import static com.workshop.departments.Department.SALES;
+import static com.workshop.employeesapp.model.Department.FINANCE;
+import static com.workshop.employeesapp.model.Department.IT;
+import static com.workshop.employeesapp.model.Department.MARKETING;
+import static com.workshop.employeesapp.model.Department.OPERATIONS;
+import static com.workshop.employeesapp.model.Department.SALES;
 
 import com.opencsv.exceptions.CsvValidationException;
-import com.workshop.employees.EmployeesService;
-import com.workshop.employees.EmployeesStorage;
-import com.workshop.employees.Manager;
-import com.workshop.employees.csv.EmployeesCsvService;
+import com.workshop.employeesapp.service.EmployeesService;
+import com.workshop.employeesapp.repository.EmployeesStorage;
+import com.workshop.employeesapp.model.Manager;
+import com.workshop.employeesapp.service.EmployeesCsvService;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;

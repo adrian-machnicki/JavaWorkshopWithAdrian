@@ -1,7 +1,5 @@
-package com.workshop.employees;
+package com.workshop.employeesapp.model;
 
-
-import com.workshop.departments.Department;
 
 public class Employee {
 

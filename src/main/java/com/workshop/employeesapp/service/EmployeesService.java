@@ -1,6 +1,9 @@
-package com.workshop.employees;
+package com.workshop.employeesapp.service;
 
-import com.workshop.departments.Department;
+import com.workshop.employeesapp.model.Employee;
+import com.workshop.employeesapp.repository.EmployeesStorage;
+import com.workshop.employeesapp.model.Manager;
+import com.workshop.employeesapp.model.Department;
 import java.util.stream.Collectors;
 
 public class EmployeesService {

@@ -1,5 +1,6 @@
-package com.workshop.employees;
+package com.workshop.employeesapp.repository;
 
+import com.workshop.employeesapp.model.Employee;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

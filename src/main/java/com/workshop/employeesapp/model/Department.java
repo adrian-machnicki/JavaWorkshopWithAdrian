@@ -1,4 +1,4 @@
-package com.workshop.departments;
+package com.workshop.employeesapp.model;
 
 public enum Department {
     MARKETING("Marketing"),
@@ -11,5 +11,9 @@ public enum Department {
 
     Department(String label) {
         this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
     }
 }

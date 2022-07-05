@@ -1,6 +1,4 @@
-package com.workshop.employees;
-
-import com.workshop.departments.Department;
+package com.workshop.employeesapp.model;
 
 public class Manager extends Employee {
 

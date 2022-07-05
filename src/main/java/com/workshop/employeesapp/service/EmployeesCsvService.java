@@ -1,10 +1,10 @@
-package com.workshop.employees.csv;
+package com.workshop.employeesapp.service;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import com.workshop.departments.Department;
-import com.workshop.employees.Employee;
-import com.workshop.employees.Manager;
+import com.workshop.employeesapp.model.Department;
+import com.workshop.employeesapp.model.Employee;
+import com.workshop.employeesapp.model.Manager;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
