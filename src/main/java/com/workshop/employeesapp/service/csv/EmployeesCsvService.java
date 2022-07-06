@@ -23,14 +23,13 @@ public class EmployeesCsvService {
     public boolean importEmployeesFromCsv(String path) throws CsvValidationException, IOException {
         var employeesList = readEmployeesFromCsv(path);
 
-        employeesList
-            .forEach(empDto -> {
-                if (empDto.isManager) {
-                    employeeService.addManager(empDto.firstname, empDto.lastname, empDto.department);
-                } else {
-                    employeeService.addEmployee(empDto.firstname, empDto.lastname, empDto.department);
-                }
-            });
+        employeesList.forEach(empDto -> {
+            if (empDto.isManager) {
+                employeeService.addManager(empDto.firstname, empDto.lastname, empDto.department);
+            } else {
+                employeeService.addEmployee(empDto.firstname, empDto.lastname, empDto.department);
+            }
+        });
 
         return true;
     }
